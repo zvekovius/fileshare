@@ -1,0 +1,13 @@
+<html>
+    <head>
+        <title>Vekhome File Server</title>
+    </head>
+    <body>
+        <h1> Welcome to the file server. </h1>
+        {% for file in files %}
+            <p><b>File Name: </b> {{ file.file_name }} </p>
+            <p><b>Uploaded: </b> {{ file.uploaded_datetime }} </p>
+            <p><b><a href="{% url 'download_file' pk=file.pk %}"> Download Me</a></b></p>
+        {% endfor %}
+    </body>
+</html>
