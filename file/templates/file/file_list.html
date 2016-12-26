@@ -1,13 +1,30 @@
 <html>
     <head>
         <title>Vekhome File Server</title>
+       <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <style>
+        h1 {
+            font-family: cursive, sans-serif, "Comic Sans MS";
+        }
+    </style>
     </head>
     <body>
-        <h1> Welcome to the file server. </h1>
-        {% for file in files %}
-            <p><b>File Name: </b> {{ file.file_name }} </p>
-            <p><b>Uploaded: </b> {{ file.uploaded_datetime }} </p>
-            <p><b><a href="{% url 'download_file' pk=file.pk %}"> Download Me</a></b></p>
+    <div class="w3-container w3-gray w3-center">
+        <h1> Welcome to Vekhome Media </h1>
+        <div class="w3-nav">
+        <a class="w3-btn w3-red w3-center" href="/logout">Logout</a>
+        </div>
+{% for file in files %}
+           <div class="w3-card-12 w3-white w3-hover-shadow w3-center" style="width:50%;float:left">
+                <div class="w3-container w3-center">
+                    <h5>Name: {{ file.file_name }} </h5>
+                    {% load static %}
+                    <!--<img src="/static/{{ file.file_name }}.{{ file.extension }}" alt="{{ file.file_name }}" style="width:80%">-->
+                    <h5>Uploaded: {{ file.uploaded_datetime }}</h5>
+                    <a class="w3-btn w3-green" href="{% url 'download_file' pk=file.pk %}"> Download</a>
+                </div>
+            </div>
         {% endfor %}
+    </div>
     </body>
 </html>
