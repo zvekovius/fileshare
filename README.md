@@ -14,10 +14,12 @@ Quick django project to serve images to users that are logged in. It uses the dj
 1. Install Depends
 2. Pull Source
 3. Cofigure Apache to point to wsgi instances.
+3a. Configure apache for XModSendFile
 4. Define a path for your files that need to be served. 
 5. Change security key in django settings. 
 6. Make database. 
-7. Restart apache2. Off to the races.
+7. Change database owner to www-data and permissions (parent dir too)
+8. Restart apache2. Off to the races.
 
 #External Resources
 Guide to install wsgi
